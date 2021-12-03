@@ -1,0 +1,113 @@
+FORMAT: 1A
+HOST: https://cocktails.org/
+
+# cocktailapp
+
+Cocktail app is a simple API allowing to view cocktail recipies, and manage the ingredients.
+
+## Recipes Collection [/recipes]
+
+### List All Recipes [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "Negroni",
+                "ingridients": [
+                    {
+                        "type": "Gin",
+                        "units": "ml",
+                        "amount": 30,
+                    },
+                    {
+                        "type": "Campari",
+                        "units": "ml",
+                        "amount": 30,
+                    },
+                    {
+                        "type": "Red Vermouth",
+                        "units": "ml",
+                        "amount": 30,
+                    },
+                ],
+                "garnish": [
+                    {
+                        "type": "Orange Peel",
+                        "units": "pcs",
+                        "amount": "1"
+                    }
+                ],
+                "recipe": "Build with ice",
+                "image": "negroni.png",
+                "glassType": "Old Fashioned",
+                "tags": ["IBA", "strong"]
+            }
+        ]
+
+### Create a New Recipe [POST]
+
+You may create your own cocktail recipe using this action. It takes a JSON
+object containing a recipe.
+
++ Request (application/json)
+
+        {
+            "name": "Gin tonic",
+            "ingridients": [
+                {
+                    "type": "Gin",
+                    "units": "ml",
+                    "amount": 50,
+                },
+                {
+                    "type": "Tonic",
+                    "units": "ml",
+                    "amount": 100,
+                }
+            ],
+            "garnish": [
+                {
+                    "type": "Orange Peel",
+                    "units": "pcs",
+                    "amount": "1"
+                }
+            ],
+            "recipe": "Build with ice",
+            "image": "gin_tonic.png",
+            "glassType": "Rocks",
+            "tags": ["IBA", "long"]
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": 2,
+                "name": "Gin tonic",
+                "ingridients": [
+                    {
+                        "type": "Gin",
+                        "units": "ml",
+                        "amount": 50,
+                    },
+                    {
+                        "type": "Tonic",
+                        "units": "ml",
+                        "amount": 100,
+                    }
+                ],
+                "garnish": [
+                    {
+                        "type": "Orange Peel",
+                        "units": "pcs",
+                        "amount": "1"
+                    }
+                ],
+                "recipe": "Build with ice",
+                "image": "gin_tonic.png",
+                "glassType": "Rocks",
+                "tags": ["IBA", "long"]
+            }
